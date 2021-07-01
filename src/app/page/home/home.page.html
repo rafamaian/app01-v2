@@ -7,20 +7,22 @@
 
     <ion-title class="ion-text-center">Artigos</ion-title>
 
-    <ion-icon name="phone-portrait" slot="end"
-    size="large" class="ion-margin-end" routerLink="/home" color="danger"></ion-icon>
+    <ion-icon name="phone-portrait-outline" slot="end"
+    size="large" class="ion-margin-end" routerLink="/home"></ion-icon>
 
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding-horizontal">
+<ion-content class="ion-padding-horizontal" *ngIf="items">
 
   <p><small>Artigos Recentes primeiro</small></p>
 
-  <ul>
-    <li *ngFor="let item of items | async">
-      {{ item.name }}
-    </li>
-  </ul>
+
+    <div *ngFor="let item of items | async">
+     <h3>{{ item.title }}</h3>
+     <img src="{{ item.thumbnail }}">
+     {{ item.resume }}
+    </div>
+
 
 </ion-content>

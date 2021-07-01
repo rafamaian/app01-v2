@@ -21,8 +21,21 @@ export class HomePage implements OnInit {
   ) {
 
     // 4) Acessa e obtém dados da coleção
-    this.itemsCollection = afs.collection('articles');
-    this.items = this.itemsCollection.valueChanges();
+    this.itemsCollection = afs.collection(
+      'articles', // Coleção a ser consultada
+      ref => ref // Aplica filtros
+        .where('status', '==', 'ativo') // Somente com 'status'='ativo'
+        .orderBy('date', 'desc') // Ordena por 'date' na ordem decrescente
+
+      /*
+        ATENÇÃO!
+          Será necessário gerar um índice no Firestore para que esta query funcione.
+          O link para gerar o índice aparece no console.
+          Logue-se no Firebase.com e clique no link do console.
+      */
+     );
+
+    this.items = this.itemsCollection.valueChanges({ idField: 'id' });
 
   }
 

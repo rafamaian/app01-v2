@@ -3,14 +3,14 @@
     <ion-menu contentId="main-content" type="overlay">
       <ion-content>
         <ion-list id="inbox-list">
-          <ion-img src="assets/logo01.png" alt="Meu App 01" class="logotipo"></ion-img>
-          <ion-list-header>Meu App 01</ion-list-header>
-          <ion-note></ion-note>
+          <ion-img src="assets/logo.png" alt="Meu App 01" class="logotipo"></ion-img>
+
+
 
           <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
             <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false"
               routerLinkActive="selected">
-              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+              <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-outline'"></ion-icon>
               <ion-label>{{ p.title }}</ion-label>
             </ion-item>
           </ion-menu-toggle>
@@ -19,7 +19,7 @@
       </ion-content>
 
       <ion-text class="ion-text-center ion-padding copyright">
-        &copy; Copyrigth 2021 André Luferat
+        &copy; Copyrigth2021 Parada Pet
       </ion-text>
 
     </ion-menu>

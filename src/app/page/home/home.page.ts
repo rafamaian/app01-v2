@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 // 1) Importa dependências
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +14,7 @@ export class HomePage implements OnInit {
 
   // 3) Atributos do script
   private itemsCollection: AngularFirestoreCollection;
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   public items: Observable<any>;
 
   constructor(

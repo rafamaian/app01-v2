@@ -1,6 +1,17 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+// Importar Firebase Guards
+import {
+  AngularFireAuthGuard,
+  redirectUnauthorizedTo,
+  redirectLoggedInTo,
+} from '@angular/fire/auth-guard';
+
+// Define redirecionadores
+const toLogin = () => redirectUnauthorizedTo(['/login']); // Usuário  não logado
+const isLogged = () => redirectLoggedInTo(['/profile']); // Usuário logado
+
 const routes: Routes = [
   // Rota da página inicial
   {

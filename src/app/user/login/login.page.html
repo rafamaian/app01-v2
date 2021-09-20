@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-center">Entrar / Login</ion-title>
+
+    <ion-thumbnail slot="end" *ngIf="auth.user | async as user; else showLogin">
+      <img src="{{user.photoURL}}" alt="{{user.displayName}}" routerLink="/profile">
+    </ion-thumbnail>
+    <ng-template #showLogin>
+      <ion-thumbnail slot="end">
+        <img src="assets/teste.png" alt="logue-se" routerLink="/login">
+      </ion-thumbnail>
+    </ng-template>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+
+  <div class="header-img">
+    <ion-icon name="log-in-outline"></ion-icon>
+  </div>
+  <p>Logue-se para ter acesso ao nosso conteúdo exclusivo.</p>
+  <ion-button (click)="login()" expand="block" color="secondary">
+    <ion-icon name="logo-google" slot="start"></ion-icon>
+    Entrar com o Google
+  </ion-button>
+
+</ion-content>

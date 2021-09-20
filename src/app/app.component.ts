@@ -1,14 +1,18 @@
 import { Component } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
+
 export class AppComponent {
   public appPages = [
-    { title: 'Início', url: '/home', icon: 'home' },
-    { title: 'Contatos', url: '/contacts', icon: 'chatbubbles' },
-    { title: 'Sobre', url: '/about', icon: 'information-circle' },
+    { title: 'Adotar', url: '/home', icon: 'caret-up-circle' },
+    { title: 'Doar', url: '/', icon: 'caret-down-circle' },
+    { title: 'Dúvidas', url: '/', icon: 'help-circle' },
+    { title: 'Suporte', url: '/', icon: 'information-circle' },
   ];
-  constructor() {}
+  constructor(public auth: AngularFireAuth) {}
 }

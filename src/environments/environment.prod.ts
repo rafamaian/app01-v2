@@ -5,12 +5,12 @@
 export const environment = {
   production: true,
   firebase: {
-    apiKey: "AIzaSyC7YcDLnBffx7AN7o_07XnMMGirQ8J_6GY",
-    authDomain: "app-mobile-bec05.firebaseapp.com",
-    projectId: "app-mobile-bec05",
-    storageBucket: "app-mobile-bec05.appspot.com",
-    messagingSenderId: "695729881774",
-    appId: "1:695729881774:web:535a09488ae98062b1a33f"
+  apiKey: "AIzaSyAN-Tk6GC7M68TXkgtXejKeQhqygUoN7Fw",
+  authDomain: "paradapet-a3ae5.firebaseapp.com",
+  projectId: "paradapet-a3ae5",
+  storageBucket: "paradapet-a3ae5.appspot.com",
+  messagingSenderId: "94549079099",
+  appId: "1:94549079099:web:ee8e601b6f3274ae66181e"
   }
 };
 

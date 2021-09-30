@@ -27,68 +27,14 @@
 
 <!-- BODY -->
 
-<ion-content class="ion-padding-horizontal" *ngIf="items">
-
-<!-- Searchbar disabled -->
-<ion-searchbar disabled="true" placeholder="Pesquisar"></ion-searchbar>
+<ion-content class="ion-padding-horizontal">
 
 
-<ion-slides pager="false">
-  <ion-slide>
-    <img src="assets/banner3.png">
-  </ion-slide>
-  <ion-slide>
-    <img src="assets/banner2.png">
-  </ion-slide>
-  <ion-slide>
-    <img src="assets/banner1.png">
-  </ion-slide>
-</ion-slides>
-
-<h6 style="margin-top: 20px;"><strong>Animais adicionados recentemente</strong></h6>
-
-<div class="list">
-  <div class="item" *ngFor="let item of items | async" routerLink="/view/{{ item.id }}">
-    <div class="list-img" style="background-image: url('{{ item.thumbnail }}');"></div>
-    <div>
-      <h3>{{ item.title }}</h3>
-      {{ item.resume }}
-    </div>
-  </div>
-</div>
-
-<ion-item routerLink="/perfilpet">
-  <ion-thumbnail slot="start">
-    <img src="assets/banner1.png">
-  </ion-thumbnail>
-  <ion-label>
-    <h3>Milo</h3>
-    <p>Raça: Pitbull</p>
-    <p>Idade: 3 anos</p>
-    <p>Sexo: Macho</p>
-    <h5>Espécie: Cachorro</h5>
-  </ion-label>
-</ion-item>
-
-<ion-item>
-  <ion-thumbnail slot="start">
-    <img src="assets/banner1.png">
-  </ion-thumbnail>
-  <ion-label>
-    <h3>Milo</h3>
-    <p>Raça: Pitbull</p>
-    <p>Idade: 3 anos</p>
-    <p>Sexo: Macho</p>
-    <h5>Espécie: Cachorro</h5>
-  </ion-label>
-</ion-item>
 
 
-  <!-- NÃO RETIRAR  <div *ngFor="let item of items | async">
-     <h3>{{ item.title }}</h3>
-     <img src="{{ item.thumbnail }}">
-     {{ item.resume }}
-    </div>-->
+
+
+
 
 
 </ion-content>
@@ -118,3 +64,4 @@
     </ion-tabs>
   </ion-toolbar>
 </ion-footer>
+

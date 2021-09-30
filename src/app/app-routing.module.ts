@@ -48,6 +48,19 @@ const routes: Routes = [
       import('./page/about/about.module').then((m) => m.AboutPageModule),
   },
 
+  {
+    path: 'perfilpet',
+    loadChildren: () => import('./page/perfilpet/perfilpet.module').then( m => m.PerfilpetPageModule)
+  },
+  {
+    path: 'perfiluser',
+    loadChildren: () => import('./page/perfiluser/perfiluser.module').then( m => m.PerfiluserPageModule),
+  },
+  {
+    path: 'adotar',
+    loadChildren: () => import('./page/adotar/adotar.module').then( m => m.AdotarPageModule),
+  },
+
   // Rota curinga (rotas inexistentes)
   // TEM QUE SER SEMPRE A ÚLTIMA ROTA
   {
@@ -55,6 +68,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./page/e404/e404.module').then((m) => m.E404PageModule),
   },
+
 ];
 
 @NgModule({

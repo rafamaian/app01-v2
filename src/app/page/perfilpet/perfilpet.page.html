@@ -27,69 +27,31 @@
 
 <!-- BODY -->
 
-<ion-content class="ion-padding-horizontal" *ngIf="items">
+<ion-content class="ion-padding-horizontal">
 
-<!-- Searchbar disabled -->
-<ion-searchbar disabled="true" placeholder="Pesquisar"></ion-searchbar>
+  <div class="bg-primary vertical-padding">
 
+    <img src="https://image.flaticon.com/icons/svg/163/163801.svg" alt="" style="width: 140px; height: 100px; margin-left: 75px; margin-top: 20px;" class="image-round">
 
-<ion-slides pager="false">
-  <ion-slide>
-    <img src="assets/banner3.png">
-  </ion-slide>
-  <ion-slide>
-    <img src="assets/banner2.png">
-  </ion-slide>
-  <ion-slide>
-    <img src="assets/banner1.png">
-  </ion-slide>
-</ion-slides>
-
-<h6 style="margin-top: 20px;"><strong>Animais adicionados recentemente</strong></h6>
-
-<div class="list">
-  <div class="item" *ngFor="let item of items | async" routerLink="/view/{{ item.id }}">
-    <div class="list-img" style="background-image: url('{{ item.thumbnail }}');"></div>
-    <div>
-      <h3>{{ item.title }}</h3>
-      {{ item.resume }}
+    <div class="ion-text-center">
+      <h6 class="text-white"><strong>Juanito Perez</strong></h6>
     </div>
+
+    <ion-list></ion-list>
+
   </div>
-</div>
 
-<ion-item routerLink="/perfilpet">
-  <ion-thumbnail slot="start">
-    <img src="assets/banner1.png">
-  </ion-thumbnail>
-  <ion-label>
-    <h3>Milo</h3>
-    <p>Raça: Pitbull</p>
-    <p>Idade: 3 anos</p>
-    <p>Sexo: Macho</p>
-    <h5>Espécie: Cachorro</h5>
-  </ion-label>
-</ion-item>
+  <ion-item>
+    <article *ngIf="item">
 
-<ion-item>
-  <ion-thumbnail slot="start">
-    <img src="assets/banner1.png">
-  </ion-thumbnail>
-  <ion-label>
-    <h3>Milo</h3>
-    <p>Raça: Pitbull</p>
-    <p>Idade: 3 anos</p>
-    <p>Sexo: Macho</p>
-    <h5>Espécie: Cachorro</h5>
-  </ion-label>
-</ion-item>
-
-
-  <!-- NÃO RETIRAR  <div *ngFor="let item of items | async">
-     <h3>{{ item.title }}</h3>
-     <img src="{{ item.thumbnail }}">
-     {{ item.resume }}
-    </div>-->
-
+      <h2>{{ (item | async)?.title }}</h2>
+      <small class="block text-right">Por {{ (item | async)?.author }} em {{ (item | async)?.date | date: 'dd/MM/yyyy'
+        }}.</small>
+      <div [innerHTML]="(item | async)?.text"></div>
+      <hr>
+    </article>
+    <ion-textarea></ion-textarea>
+  </ion-item>
 
 </ion-content>
 
@@ -118,3 +80,4 @@
     </ion-tabs>
   </ion-toolbar>
 </ion-footer>
+

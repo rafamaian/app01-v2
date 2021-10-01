@@ -2,45 +2,39 @@
 
 <ion-header>
   <ion-toolbar>
-
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
 
-    <img src="assets/logo.png" style="width: 140px; height: 50px; margin-left: 40px;" alt="Parada Pet" routerLink="/home">
+    <img
+      src="assets/logo.png"
+      style="width: 140px; height: 50px; margin-left: 40px"
+      alt="Parada Pet"
+      routerLink="/home"
+    />
 
-  <!--Pedir ajuda ao professor para resolver  <ion-thumbnail slot="end" *ngIf="auth.user | async as user; else showLogin">
+    <!--Pedir ajuda ao professor para resolver  <ion-thumbnail slot="end" *ngIf="auth.user | async as user; else showLogin">
       <img src="{{user.photoURL}}" alt="{{user.displayName}}" routerLink="/profile">
     </ion-thumbnail>-->
     <ng-template #showLogin>
       <ion-thumbnail slot="end">
-        <img src="assets/teste.png" style="width: 8
-        0px; height: 40px;" alt="logue-se" routerLink="/login">
+        <img
+          src="assets/teste.png"
+          style="width: 8 0px; height: 40px"
+          alt="logue-se"
+          routerLink="/login"
+        />
       </ion-thumbnail>
     </ng-template>
 
-  <!--  <ion-icon name="phone-portrait-outline" slot="end"
+    <!--  <ion-icon name="phone-portrait-outline" slot="end"
     size="large" class="ion-margin-end" routerLink="/home"></ion-icon>-->
-
   </ion-toolbar>
 </ion-header>
 
 <!-- BODY -->
 
-<ion-content class="ion-padding-horizontal">
-
-  <div class="bg-primary vertical-padding">
-
-    <img src="https://image.flaticon.com/icons/svg/163/163801.svg" alt="" style="width: 140px; height: 100px; margin-left: 75px; margin-top: 20px;" class="image-round">
-
-    <div class="ion-text-center">
-      <h6 class="text-white"><strong>Juanito Perez</strong></h6>
-    </div>
-
-    <ion-list></ion-list>
-
-  </div>
-
+<!--
   <ion-item>
     <article *ngIf="item">
 
@@ -51,8 +45,67 @@
       <hr>
     </article>
     <ion-textarea></ion-textarea>
-  </ion-item>
+  </ion-item>-->
+  
+<ion-content class="ion-padding-horizontal">
+  <ion-slides pager="true">
+    <ion-slide>
+      <img src="assets/banner3.png" />
+    </ion-slide>
+  </ion-slides>
 
+  <div class="title">
+  <div class="ion-text-left">
+    <h6 class="text-white"><strong>Milo</strong></h6>
+  </div>
+  </div>
+  <ion-list>
+    <ion-item>
+      <ion-icon name="balloon-outline"></ion-icon>
+      <ion-label>Idade</ion-label>
+      <ion-icon name="male-female-outline"></ion-icon>
+      <ion-label>Sexo</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-icon name="pricetag-outline"></ion-icon>
+      <ion-label>Espécie</ion-label>
+      <p>Raça: Pitbull</p>
+      <ion-icon name="pin-outline"></ion-icon>
+      <ion-label>Raça</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-icon name="medkit-outline"></ion-icon>
+      <ion-label>Vacina</ion-label>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <ion-item>
+      <ion-label>Descrição do animal:</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div class="title">
+  <div class="ion-text-center">
+    <h6 class="text-white"><strong>Responsávél</strong></h6>
+  </div>
+</div>
+  <ion-list>
+    <ion-item>
+      <ion-icon name="person-outline"></ion-icon>
+      <ion-label>Nome</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list></ion-list>
+
+  <div class="ion-text-center">
+  <ion-button size="small" color="light" routerLink="/confadotar">
+    ADOTAR</ion-button>
+</div>
 </ion-content>
 
 <!-- Footer -->
@@ -75,9 +128,7 @@
           <ion-icon name="chatbubbles-outline"></ion-icon>
           <ion-label>Chat</ion-label>
         </ion-tab-button>
-
       </ion-tab-bar>
     </ion-tabs>
   </ion-toolbar>
 </ion-footer>
-

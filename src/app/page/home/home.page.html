@@ -29,10 +29,6 @@
 
 <ion-content class="ion-padding-horizontal" *ngIf="items">
 
-<!-- Searchbar disabled -->
-<ion-searchbar disabled="true" placeholder="Pesquisar"></ion-searchbar>
-
-
 <ion-slides pager="false">
   <ion-slide>
     <img src="assets/banner3.png">
@@ -45,7 +41,9 @@
   </ion-slide>
 </ion-slides>
 
-<h6 style="margin-top: 20px;"><strong>Animais adicionados recentemente</strong></h6>
+<div class="title">
+<h6><strong>Adicionados recentemente</strong></h6>
+</div>
 
 <div class="list">
   <div class="item" *ngFor="let item of items | async" routerLink="/view/{{ item.id }}">
@@ -62,7 +60,7 @@
     <img src="assets/banner1.png">
   </ion-thumbnail>
   <ion-label>
-    <h3>Milo</h3>
+    <h5>Milo</h5>
     <p>Raça: Pitbull</p>
     <p>Idade: 3 anos</p>
     <p>Sexo: Macho</p>
@@ -75,7 +73,7 @@
     <img src="assets/banner1.png">
   </ion-thumbnail>
   <ion-label>
-    <h3>Milo</h3>
+    <h5>Milo</h5>
     <p>Raça: Pitbull</p>
     <p>Idade: 3 anos</p>
     <p>Sexo: Macho</p>
@@ -100,18 +98,18 @@
     <ion-tabs>
       <ion-tab-bar slot="bottom">
         <ion-tab-button routerLink="/home">
-          <ion-icon name="paw-outline"></ion-icon>
+          <ion-icon name="home-outline"></ion-icon>
           <ion-label>Home</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button routerLink="/">
-          <ion-icon name="notifications-outline"></ion-icon>
-          <ion-label>Notificação</ion-label>
+        <ion-tab-button routerLink="/adotar">
+          <ion-icon name="paw-outline"></ion-icon>
+          <ion-label>Adotar</ion-label>
         </ion-tab-button>
 
         <ion-tab-button routerLink="/">
-          <ion-icon name="chatbubbles-outline"></ion-icon>
-          <ion-label>Chat</ion-label>
+          <ion-icon name="person-outline"></ion-icon>
+          <ion-label>Perfil</ion-label>
         </ion-tab-button>
 
       </ion-tab-bar>

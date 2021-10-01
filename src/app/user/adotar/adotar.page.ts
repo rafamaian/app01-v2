@@ -8,11 +8,11 @@ import { AlertController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-adotar',
+  templateUrl: './adotar.page.html',
+  styleUrls: ['./adotar.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class AdotarPage implements OnInit {
 
   userData: any;
 
@@ -22,48 +22,44 @@ export class LoginPage implements OnInit {
     public auth: AngularFireAuth,
     private router: Router,
     public alert: AlertController,
-    public afs: AngularFirestore, // Firestore
+    public afs: AngularFirestore,
+    // Firestore
   ) { }
 
   ngOnInit() { }
 
   // 4) Método de login
-  login() {
-    this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+  adotar() {
+    this.auth.onAuthStateChanged(
 
       // Se o login funcionar
-      .then(
+
         (data: any) => {
 
-          console.log(data.user.displayName, data.user.uid);
+          // console.log(data.uid);
 
-          this.afs.firestore.doc(`register/${data.user.uid}`).get()
+          this.afs.firestore.doc(`adotantes/${data.uid}`).get()
             .then((uData) => {
 
               // Se tem perfil
               if (uData.exists) {
                 this.feedback(
                   data.user.displayName,
-                  'Você já pode acessar o conteúdo restrito.',
+                  'Você já pode acessar a página de adoção.',
                   '/user/profile'
                 );
               } else {
                 this.feedback(
-                  data.user.displayName,
-                  'Você precisa completar seu cadastro para acessar o conteúdo restrito.',
-                  '/user/register'
+                  data.displayName,
+                  'Você precisa completar seu cadastro para acessar a página de adoção.',
+                  '/loginadotar'
                 );
               }
             });
         }
-      )
-
-      // Se o login falhar
-      .catch(
-        (error) => {
-          console.log(error)
-        }
       );
+
+
   }
 
   // 5) Feeback e saida da página
@@ -80,5 +76,10 @@ export class LoginPage implements OnInit {
     });
 
     await alert.present();
-  }
+
+
+
 }
+
+}
+

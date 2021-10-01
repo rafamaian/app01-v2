@@ -60,6 +60,34 @@ const routes: Routes = [
     path: 'adotar',
     loadChildren: () => import('./page/adotar/adotar.module').then( m => m.AdotarPageModule),
   },
+  {
+    path: 'loginadotar',
+    loadChildren: () => import('./pages/loginadotar/loginadotar.module').then( m => m.LoginadotarPageModule),
+  },
+  {
+    path: 'logindoar',
+    loadChildren: () => import('./pages/logindoar/logindoar.module').then( m => m.LogindoarPageModule),
+  },
+  {
+    path: 'adotar',
+    loadChildren: () => import('./user/adotar/adotar.module').then( m => m.AdotarPageModule),
+  },
+  {
+    path: 'doar',
+    loadChildren: () => import('./user/doar/doar.module').then( m => m.DoarPageModule),
+  },
+  {
+    path: 'edit',
+    loadChildren: () => import('./user/edit/edit.module').then( m => m.EditPageModule),
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./user/register/register.module').then( m => m.RegisterPageModule),
+  },
+  {
+    path: 'confadotar',
+    loadChildren: () => import('./page/confadotar/confadotar.module').then( m => m.ConfadotarPageModule),
+  },
 
   // Rota curinga (rotas inexistentes)
   // TEM QUE SER SEMPRE A ÚLTIMA ROTA

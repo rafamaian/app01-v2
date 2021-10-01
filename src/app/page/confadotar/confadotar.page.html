@@ -2,57 +2,96 @@
 
 <ion-header>
   <ion-toolbar>
-
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
 
-    <img src="assets/logo.png" style="width: 140px; height: 50px; margin-left: 40px;" alt="Parada Pet" routerLink="/home">
+    <img
+      src="assets/logo.png"
+      style="width: 140px; height: 50px; margin-left: 40px"
+      alt="Parada Pet"
+      routerLink="/home"
+    />
 
-  <!--Pedir ajuda ao professor para resolver  <ion-thumbnail slot="end" *ngIf="auth.user | async as user; else showLogin">
+    <!--Pedir ajuda ao professor para resolver  <ion-thumbnail slot="end" *ngIf="auth.user | async as user; else showLogin">
       <img src="{{user.photoURL}}" alt="{{user.displayName}}" routerLink="/profile">
     </ion-thumbnail>-->
     <ng-template #showLogin>
       <ion-thumbnail slot="end">
-        <img src="assets/teste.png" style="width: 8
-        0px; height: 40px;" alt="logue-se" routerLink="/login">
+        <img
+          src="assets/teste.png"
+          style="width: 8 0px; height: 40px"
+          alt="logue-se"
+          routerLink="/login"
+        />
       </ion-thumbnail>
     </ng-template>
 
-  <!--  <ion-icon name="phone-portrait-outline" slot="end"
+    <!--  <ion-icon name="phone-portrait-outline" slot="end"
     size="large" class="ion-margin-end" routerLink="/home"></ion-icon>-->
-
   </ion-toolbar>
 </ion-header>
 
 <!-- BODY -->
 
 <ion-content class="ion-padding-horizontal">
-
   <ion-slides pager="false">
     <ion-slide>
-      <img src="assets/banner4.png">
+      <img src="assets/banner4.png" />
     </ion-slide>
     <ion-slide>
-      <img src="assets/banner5.png">
+      <img src="assets/banner5.png" />
     </ion-slide>
     <ion-slide>
-      <img src="assets/banner6.png">
+      <img src="assets/banner6.png" />
     </ion-slide>
   </ion-slides>
 
-<h3>Adote! </h3>
-<p>Todos os pets merecem uma vida digna, regada com muito amor e proteção.<br> <ion-text color="danger"></ion-text>
-  Além disso, ao adotar o animal de um abrigo você estará,automaticamente, salvando mais de uma vida,
-  pois o espaço do seu novo melhor amigo será disponibilizado a outro animal de rua que será resgatado.</p>
+  <div class="title">
+    <h5 class="ion-text-center">ADOTAR</h5>
+  </div>
+  <p class="ion-text-center">
+    Todos os pets merecem uma vida digna, regada com muito amor e proteção.
+  </p>
+  <p class="ion-text-center">
+    Além disso, ao adotar o animal de um abrigo você estará,automaticamente,
+    salvando mais de uma vida, pois o espaço do seu novo melhor amigo será
+    disponibilizado a outro animal de rua que será resgatado.
+  </p>
 
-<p class="ion-padding-top">
-<ion-button color="danger" expand="block" >
-<ion-icon name="log-out" slot="start"></ion-icon>
-Deseja continuar?
-</ion-button>
-</p>
+  <div class="title">
+    <h6 class="ion-text-left">Ao adotar você se compromete em:</h6>
+  </div>
 
+  <table>
+    <tr>
+      <td>Ter cuidado</td>
+      <td>Ter paciência</td>
+      <td>Ter responsabilidade</td>
+    </tr>
+    <tr>
+      <td>Dar amor</td>
+      <td>Dar atenção</td>
+      <td>Dar tempo</td>
+    </tr>
+    <tr>
+      <td>Ter gastos</td>
+      <td>Ter paciência</td>
+      <td>Ter responsabilidade</td>
+    </tr>
+  </table>
+
+  <br/>
+
+  <div class="title">
+    <h6 class="ion-text-center">Deseja continuar?</h6>
+    <div class="ion-text-center">
+      <ion-button size="small" color="light" routerLink="/confadotar">
+        <ion-icon name="arrow-forward-circle-outline" slot="start"></ion-icon>
+        ADOTAR</ion-button
+      >
+    </div>
+  </div>
 </ion-content>
 
 <!-- Footer -->
@@ -66,18 +105,16 @@ Deseja continuar?
           <ion-label>Home</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button routerLink="/">
-          <ion-icon name="notifications-outline"></ion-icon>
-          <ion-label>Notificação</ion-label>
+        <ion-tab-button routerLink="/adotar">
+          <ion-icon name="paw-outline"></ion-icon>
+          <ion-label>Adotar</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button routerLink="/">
-          <ion-icon name="chatbubbles-outline"></ion-icon>
-          <ion-label>Chat</ion-label>
+        <ion-tab-button routerLink="/perfiluser">
+          <ion-icon name="person-outline"></ion-icon>
+          <ion-label>Perfil</ion-label>
         </ion-tab-button>
-
       </ion-tab-bar>
     </ion-tabs>
   </ion-toolbar>
 </ion-footer>
-

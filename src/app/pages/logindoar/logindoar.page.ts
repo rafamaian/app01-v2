@@ -86,12 +86,13 @@ export class LogindoarPage implements OnInit {
     // Um formulário é um 'agrupamento' (group) de campos...
     this.doarForm = this.form.group({
       uid: [''],
-      nomedoanimal: [
+      nome: [
         '',
         Validators.compose([Validators.required, removeSpaces]),
       ],
       raca: ['', Validators.compose([Validators.required, removeSpaces])],
-      datadenascieidade: ['', Validators.compose([Validators.required])],
+      idade: ['', Validators.compose([Validators.required])],
+      nascimento: ['', Validators.compose([Validators.required])],
       especie: ['', Validators.compose([Validators.required, removeSpaces])],
       vacina: [''],
       datainclusao: [
@@ -99,7 +100,7 @@ export class LogindoarPage implements OnInit {
         Validators.compose([Validators.required, removeSpaces]),
       ],
       descricao: ['', Validators.compose([Validators.required, removeSpaces])],
-      nomedoador: ['', Validators.compose([Validators.required, removeSpaces])],
+      doador: ['', Validators.compose([Validators.required, removeSpaces])],
       fotodoanimal: [''],
       motivodadoacao: [
         '',
@@ -150,6 +151,16 @@ export class LogindoarPage implements OnInit {
             this.router.navigate(['/profile']);
           },
         },
+        {
+          text: 'Ver Perfil',
+          handler: () => {
+            // Reset do formulário
+            this.doarForm.reset();
+
+            // Vai para perfil
+            this.router.navigate(['/perfilpet']);
+          },
+        }
       ],
     });
 

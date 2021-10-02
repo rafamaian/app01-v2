@@ -207,25 +207,22 @@
       </ion-item>
 
       <ion-item>
-        <ion-label for="profissão" position="floating" color="primary">
+        <ion-label for="profissao" position="floating" color="primary">
           Profissão:
           <ion-text
             color="danger"
-            *ngIf="registerForm.controls.whatsapp.errors"
+            *ngIf="registerForm.controls.profissao.errors"
           >
-            <small *ngIf="registerForm.controls.whatsapp.errors.required"
+            <small *ngIf="registerForm.controls.profissao.errors.required"
               >* Obrigatório</small
-            >
-            <small *ngIf="registerForm.controls.whatsapp.errors.pattern"
-              >* Inválido</small
             >
           </ion-text>
         </ion-label>
         <ion-input
           type="text"
-          id="whatsapp"
-          name="whatsapp"
-          formControlName="whatsapp"
+          id="profissao"
+          name="profissao"
+          formControlName="profissao"
         ></ion-input>
       </ion-item>
 

@@ -49,7 +49,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'perfilpet',
+    path: 'perfilpet/:petid',
     loadChildren: () => import('./page/perfilpet/perfilpet.module').then( m => m.PerfilpetPageModule)
   },
   {
@@ -69,23 +69,23 @@ const routes: Routes = [
     loadChildren: () => import('./pages/logindoar/logindoar.module').then( m => m.LogindoarPageModule),
   },
   {
-    path: 'adotar',
-    loadChildren: () => import('./user/adotar/adotar.module').then( m => m.AdotarPageModule),
-  },
-  {
-    path: 'doar',
-    loadChildren: () => import('./user/doar/doar.module').then( m => m.DoarPageModule),
-  },
-  {
-    path: 'edit',
+    path: 'user/edit',
     loadChildren: () => import('./user/edit/edit.module').then( m => m.EditPageModule),
   },
   {
-    path: 'register',
+    path: 'user/login',
+    loadChildren: () => import('./user/login/login.module').then( m => m.LoginPageModule),
+  },
+  {
+    path: 'user/register',
     loadChildren: () => import('./user/register/register.module').then( m => m.RegisterPageModule),
   },
   {
-    path: 'confadotar',
+    path: 'user/profile',
+    loadChildren: () => import('./user/profile/profile.module').then( m => m.ProfilePageModule),
+  },
+  {
+    path: 'confadotar/:petid',
     loadChildren: () => import('./page/confadotar/confadotar.module').then( m => m.ConfadotarPageModule),
   },
 

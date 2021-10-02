@@ -46,20 +46,12 @@ export class PerfilpetPage implements OnInit {
   ngOnInit(): void {
 
     // Obter o ID da rota e armazena em id
-    this.id = this.activatedRoute.snapshot.paramMap.get('id');
-
-    // Verifica se documento existe
-    this.afs.firestore.doc(`articles/${this.id}`).get()
-      .then(docSnapshot => {
-        if (!docSnapshot.exists) {
-
-          // Se não existe, exibe página erro 404
-          this.router.navigate(['\e404']);
-        }
-      });
+    this.id = this.activatedRoute.snapshot.paramMap.get('petid');
 
     // Obter o artigo do firestore à partir do ID
-    this.item = this.afs.doc(`articles/${this.id}`).valueChanges();
+    this.item = this.afs.doc(`animais/${this.id}`).valueChanges();
+
+    console.log(`animais/${this.id}`);
   }
 
 }

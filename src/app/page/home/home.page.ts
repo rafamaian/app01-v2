@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
-// 1) Importa dependências
+import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -12,37 +11,19 @@ import { DatePipe } from '@angular/common';
 })
 export class HomePage implements OnInit {
 
-  // 2) Atributos
-  items: Observable<any>; // 'items' receberá todos os documentos da coleção
-  public pipe = new DatePipe('en_US'); // Formatar datas
+  items: Observable<any>;
 
   constructor(
-    // 3) Injeta dependências
-    private afs: AngularFirestore
+    // Usuário autenticado
+    public auth: AngularFireAuth,
+    public afs: AngularFirestore,
+    // routerLInk
+    public router: Router
   ) {
 
-    // Obtém data de agora
-    var now = this.pipe.transform(Date.now(), 'yyyy-MM-dd HH:mm:ss').trim();
+    this.items = afs.collection('animais').valueChanges({ idField: 'id'});
 
-    // 4) Obtém todos os documentos da coleção
-    this.items = this.afs
-      .collection(
-        'articles', // Coleção a ser consultada
-        (ref) =>
-          ref // Aplica filtros
-            .where('status', '==', 'ativo') // Somente com 'status'='ativo'
-            .where('date', '<=', now) // Somente com a data no passado
-            .orderBy('date', 'desc') // Ordena por 'date' na ordem decrescente
-
-        /*
-        ATENÇÃO!
-          Será necessário gerar um índice no Firestore para que esta query funcione.
-          O link para gerar o índice aparece no console.
-          Logue-se no Firebase.com e clique no link do console.
-      */
-      )
-      .valueChanges({ idField: 'id' });
-  }
+ }
 
   ngOnInit(): void {}
 }

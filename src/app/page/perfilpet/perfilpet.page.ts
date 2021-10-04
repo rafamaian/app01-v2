@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-
 // Importa dependências
 import { ActivatedRoute, Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
-
 import { AngularFireAuth } from '@angular/fire/auth';
 import { DatePipe } from '@angular/common';
 import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-perfilpet',
@@ -18,15 +17,9 @@ export class PerfilpetPage implements OnInit {
 
   public id: string; // Armazena o ID do artigo a ser visualizado
   public item: Observable<any>; // Armazena o artigo completo
-  public comments: any; // Armazena os comentários do artigo
-
-  public comment: any; // Comentário sendo processado
-
   public user: any; // Dados do usuário logado
-  public uComment: string; // Campo de novo comentário
-  public uDate: string; // Data do comentário
-
   public pipe = new DatePipe('en_US'); // Formatar as datas
+  items: Observable<any>;
 
   constructor(
     // Injeta dependência
@@ -36,11 +29,11 @@ export class PerfilpetPage implements OnInit {
     public auth: AngularFireAuth,
   ) {
 
+    this.items = afs.collection('animais').valueChanges({ idField: 'id'});
      // Obtém dados do usuário logado
      this.auth.onAuthStateChanged((userData) => {
       this.user = userData;
     });
-
   }
 
   ngOnInit(): void {
@@ -53,5 +46,4 @@ export class PerfilpetPage implements OnInit {
 
     console.log(`animais/${this.id}`);
   }
-
 }

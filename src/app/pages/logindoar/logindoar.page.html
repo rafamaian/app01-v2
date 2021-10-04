@@ -1,0 +1,293 @@
+<!-- Header -->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <img
+      src="assets/logo.png"
+      style="width: 140px; height: 50px; margin-left: 40px"
+      alt="Parada Pet"
+      routerLink="/home"
+    />
+    <ng-template #showLogin>
+      <ion-thumbnail slot="end">
+        <img
+          src="assets/teste.png"
+          style="width: 8 0px; height: 40px"
+          alt="logue-se"
+          routerLink="/login"
+        />
+      </ion-thumbnail>
+    </ng-template>
+  </ion-toolbar>
+</ion-header>
+
+<!-- BODY -->
+
+<ion-content class="ion-padding-horizontal">
+  <h2>Formulário de Doação</h2>
+  <p>
+    Preencha todos os campos com atenção para se cadastrar no aplicativo. Você
+    será responsável caso preencha informações incorretas ou inverídicas.
+  </p>
+  <p class="ion-text-center">
+    <ion-text color="danger"
+      ><small>Todos os campos são obrigatórios.</small></ion-text
+    >
+  </p>
+
+  <form [formGroup]="doarForm" (ngSubmit)="registerSend()">
+    <ion-list lines="full" class="ion-no-padding">
+      <!-- Campo nome (name) -->
+      <br />Nome<ion-item>
+        <ion-label for="nome" position="floating" color="primary">
+          <ion-text color="danger" *ngIf="doarForm.controls.nome.errors">
+            <small *ngIf="doarForm.controls.nome.errors.required"
+              >* Obrigatório</small
+            >
+          </ion-text>
+        </ion-label>
+        <ion-input
+          type="text"
+          id="nome"
+          name="nome"
+          formControlName="nome"
+        ></ion-input>
+      </ion-item>
+
+      <!-- Campo e-mail (email) -->
+      <br />
+      <div>Nascimento</div>
+      <ion-item>
+        <ion-label for="nascimento" position="floating" color="primary">
+          <ion-text color="danger" *ngIf="doarForm.controls.nascimento.errors">
+            <small *ngIf="doarForm.controls.nascimento.errors.required"
+              >* Obrigatório</small
+            >
+          </ion-text>
+        </ion-label>
+        <ion-input
+          type="text"
+          id="nascimento"
+          name="nascimento"
+          formControlName="nascimento"
+        ></ion-input>
+      </ion-item>
+
+      <!-- Campo e-mail (email) -->
+      <br />
+      <div>Idade</div>
+      <ion-item>
+        <ion-label for="idade" position="floating" color="primary">
+          <ion-text color="danger" *ngIf="doarForm.controls.idade.errors">
+            <small *ngIf="doarForm.controls.idade.errors.required"
+              >* Obrigatório</small
+            >
+          </ion-text>
+        </ion-label>
+        <ion-input
+          type="text"
+          id="idade"
+          name="idade"
+          formControlName="idade"
+        ></ion-input>
+      </ion-item>
+
+      <br />
+      <div>Espécie</div>
+      <ion-item>
+        <ion-label for="especie" color="primary">
+          <ion-text color="danger" *ngIf="doarForm.controls.especie.errors">
+            <small *ngIf="doarForm.controls.especie.errors.required"
+              >* Obrigatório</small
+            >
+          </ion-text>
+        </ion-label>
+        <ion-input
+          type="text"
+          id="especie"
+          name="especie"
+          formControlName="especie"
+        ></ion-input>
+      </ion-item>
+
+      <!-- Campo e-mail (email) -->
+      <br />
+      <div>Raça</div>
+      <ion-item>
+        <ion-label for="raca" position="floating" color="primary">
+          <ion-text color="danger" *ngIf="doarForm.controls.raca.errors">
+            <small *ngIf="doarForm.controls.raca.errors.required"
+              >* Obrigatório</small
+            >
+          </ion-text>
+        </ion-label>
+        <ion-input
+          type="text"
+          id="raca"
+          name="raca"
+          formControlName="raca"
+        ></ion-input>
+      </ion-item>
+
+      <!-- Campo e-mail (email) -->
+      <br />
+      <div>Vacina</div>
+      <ion-item>
+        <ion-label for="vacina" position="floating" color="primary">
+        </ion-label>
+        <ion-grid>
+          <ion-row>
+            <ion-col
+              ><label
+                ><input type="radio" formControlName="vacina" value="Sim" />
+                &nbsp;Sim</label
+              >
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col
+              ><label
+                ><input type="radio" formControlName="vacina" value="Não" />
+                &nbsp;Não</label
+              >
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+
+      <!-- Campo e-mail (email) -->
+      <br />
+      <div>Data de inclusão</div>
+      <ion-item>
+        <ion-label for="datainclusao" position="floating" color="primary">
+          <ion-text
+            color="danger"
+            *ngIf="doarForm.controls.datainclusao.errors"
+          >
+            <small *ngIf="doarForm.controls.datainclusao.errors.required"
+              >* Obrigatório</small
+            >
+          </ion-text>
+        </ion-label>
+        <ion-input
+          type="text"
+          id="datainclusao"
+          name="datainclusao"
+          formControlName="datainclusao"
+        ></ion-input>
+      </ion-item>
+
+      <!-- Campo e-mail (email) -->
+      <br />
+      <div>Informçãoes Adicionais?</div>
+      <ion-item>
+        <ion-label for="descricao" position="floating" color="primary">
+          <ion-text color="danger" *ngIf="doarForm.controls.descricao.errors">
+            <small *ngIf="doarForm.controls.descricao.errors.required"
+              >* Obrigatório</small
+            >
+          </ion-text>
+        </ion-label>
+        <ion-input
+          type="text"
+          id="descricao"
+          name="descricao"
+          formControlName="descricao"
+        ></ion-input>
+      </ion-item>
+
+      <!-- Campo e-mail (email) -->
+      <br />
+      <div>Foto do animal</div>
+      <ion-item>
+        <ion-label for="fotodoanimal" position="floating" color="primary">
+  
+        </ion-label>
+        <ion-input
+          type="text"
+          id="fotodoanimal"
+          name="fotodoanimal"
+          formControlName="fotodoanimal"
+        ></ion-input>
+      </ion-item>
+
+      <!-- Campo e-mail (email) -->
+      <br />
+      <div>Responsável</div>
+      <ion-item>
+        <ion-label for="doador" position="floating" color="primary">
+          <ion-text color="danger" *ngIf="doarForm.controls.doador.errors">
+            <small *ngIf="doarForm.controls.doador.errors.required"
+              >* Obrigatório</small
+            >
+          </ion-text>
+        </ion-label>
+        <ion-input
+          type="text"
+          id="doador"
+          name="doador"
+          formControlName="doador"
+        ></ion-input>
+      </ion-item>
+
+      <!-- Campo e-mail (email) -->
+      <br />
+      <div>Motivo da doação:</div>
+      <ion-item>
+        <ion-label for="motivodadoacao" position="floating" color="primary">
+          <ion-text
+            color="danger"
+            *ngIf="doarForm.controls.motivodadoacao.errors"
+          >
+            <small *ngIf="doarForm.controls.motivodadoacao.errors.required"
+              >* Obrigatório</small
+            >
+          </ion-text>
+        </ion-label>
+        <ion-input
+          type="text"
+          id="motivodadoacao"
+          name="motivodadoacao"
+          formControlName="motivodadoacao"
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+
+    <ion-button
+      class="ion-margin-vertical"
+      type="submit"
+      expand="block"
+      [disabled]="doarForm.invalid"
+      >Cadastrar
+    </ion-button>
+  </form>
+</ion-content>
+
+<!-- Footer -->
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button routerLink="/home">
+          <ion-icon name="home-outline"></ion-icon>
+          <ion-label>Home</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button routerLink="/adotar">
+          <ion-icon name="paw-outline"></ion-icon>
+          <ion-label>Adotar</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button routerLink="/perfiluser">
+          <ion-icon name="person-outline"></ion-icon>
+          <ion-label>Perfil</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>
